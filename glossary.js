@@ -50,3 +50,14 @@ if(b.dataset.t){const g=GLOSS.find(x=>x.term==b.dataset.t);dlgb.innerHTML=`<h3>$
 [B,'Churn','The share of customers who leave in a period.','High churn shrinks your obtainable market.','lost ÷ starting customers','market'],
 [V,'Pilot / Proof of Concept','A small real-world trial with one customer.','Gives real numbers for your ROI inputs.','—','score']
 ].map(a=>({cat:a[0],term:a[1],def:a[2],why:a[3],ex:a[4],jump:a[5]})).forEach(g=>GLOSS.push(g));
+[
+[A,'Stateless MCP','An MCP server design that keeps no session between calls, so it scales easily.','Simpler hosting on edge or serverless platforms.','—','cost'],
+[A,'Agent-to-Agent (A2A) & Agent Cards','A way for agents to find and call each other, each described by a public card.','Lets one agent hand work to another.','—','cost'],
+[A,'AG-UI / A2UI','Ways for an agent to stream its progress and interface state to an app.','Adds streaming work to the build.','—','cost'],
+[L,'Reasoning / Thinking Tokens','Hidden tokens a model uses to think before answering, billed as output.','Raises cost on hard tasks.','think tokens × output price','cost'],
+[L,'Batch API','Async processing at a discount for work that can wait.','Cuts cost when answers are not urgent.','cost × 0.5','cost'],
+[L,'Context Caching TTL','How long a cached prompt stays available (for example 5 minutes or 1 hour).','Longer TTL costs more to write but helps repeated use.','avg = (write + 0.1 × reads) ÷ (reads + 1)','cost'],
+[A,'LLM-as-a-Judge','Using one model to score another model’s answers.','A way to check quality at scale; adds calls.','—','score'],
+[B,'Outcome-Based Pricing','Charging per result, such as a resolved ticket.','Aligns price with value delivered.','price ≈ value per outcome × share','roi'],
+[B,'AP2 / x402','Protocols for agent payments.','Matter if your agent buys or charges per action.','—','roi']
+].map(a=>({cat:a[0],term:a[1],def:a[2],why:a[3],ex:a[4],jump:a[5]})).forEach(g=>GLOSS.push(g));
