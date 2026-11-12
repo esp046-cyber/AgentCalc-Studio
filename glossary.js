@@ -36,3 +36,17 @@ gl.innerHTML=r.length?r.map((g,i)=>`<button class="card chip" style="display:blo
 gq.oninput=e=>{q=e.target.value.toLowerCase();draw()};
 el.onclick=e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.c){c=b.dataset.c;draw()}
 if(b.dataset.t){const g=GLOSS.find(x=>x.term==b.dataset.t);dlgb.innerHTML=`<h3>${g.term}</h3><p><b>Plain English:</b> ${g.def}</p><p><b>Why it matters before building:</b> ${g.why}</p><p class=mono><b>Formula / example:</b> ${g.ex}</p><button class="btn acc" id=jmp>Open related calculator</button> `;dlg.showModal();jmp.onclick=()=>{dlg.close();go('calc',g.jump)}}};draw()}
+
+[
+[L,'Prompt Caching','Re-using an unchanged prompt prefix at a lower price.','Cuts cost when the system prompt is long.','Saving ≈ cached tokens × (price − cached price)','cost'],
+[L,'Temperature','A setting for how random the model output is.','Lower values give steadier results for business tasks.','0 = steady, 1 = varied','cost'],
+[L,'Rate Limit','The cap on requests or tokens per minute.','Peak users can hit it and slow the agent.','peak runs/min × tokens per run','cost'],
+[A,'Embeddings','Number lists that capture meaning so text can be searched by similarity.','Power search in RAG agents.','—','cost'],
+[A,'Vector Database','A store that finds items by embedding similarity.','Adds a monthly infrastructure cost.','—','cost'],
+[A,'Fine-Tuning','Training a model further on your examples.','Often unnecessary; try prompting and RAG first.','—','cost'],
+[A,'Observability','Logs and traces that show what the agent did and why.','Needed to find errors and track real cost.','—','score'],
+[B,'Gross Margin','Revenue left after direct costs, as a percentage.','Shows if each customer is profitable.','(revenue − cost) ÷ revenue','cost'],
+[B,'CAC (Customer Acquisition Cost)','What you spend to win one customer.','Must be recovered within a reasonable time.','CAC = sales spend ÷ new customers','market'],
+[B,'Churn','The share of customers who leave in a period.','High churn shrinks your obtainable market.','lost ÷ starting customers','market'],
+[V,'Pilot / Proof of Concept','A small real-world trial with one customer.','Gives real numbers for your ROI inputs.','—','score']
+].map(a=>({cat:a[0],term:a[1],def:a[2],why:a[3],ex:a[4],jump:a[5]})).forEach(g=>GLOSS.push(g));

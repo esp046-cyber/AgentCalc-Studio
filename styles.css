@@ -31,3 +31,4 @@ footer{text-align:center;color:var(--sub);padding:16px 0;font-size:14px}footer i
 @media(min-width:768px){.grid{grid-template-columns:1fr 1fr}.brand{display:block}}
 @media(min-width:1024px){body{padding-left:136px}#nav{inset:64px auto 0 0;width:120px;flex-direction:column;border-top:0;border-right:1px solid var(--line)}#nav button{flex:0 0 56px}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+#rpt{display:none}@media print{body>*:not(#rpt){display:none!important}#rpt{display:block;color:#000;background:#fff;font-family:system-ui,sans-serif;padding:0}body{padding:0;background:#fff}}
