@@ -1,0 +1,41 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AgentCalc Studio — Universal AI Agent Developer & Business Calculator</title>
+<meta name="description" content="Calculate LLM token costs, build-route budgets, ROI and TAM/SAM/SOM before building AI agents.">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#1A0B3B">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AgentCalc Studio — Universal AI Agent Developer & Business Calculator">
+<meta property="og:description" content="Calculate LLM token costs, build-route budgets, business ROI, and TAM/SAM/SOM before building AI agents. In partnership with Create AI Agents Championship & Dubai Chamber Digital.">
+<meta property="og:image" content="icons/og-image.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="icons/og-image.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="AgentCalc">
+<link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+<link rel="stylesheet" href="css/styles.css"></head>
+<body>
+<header class="top"><img src="images/logo-championship.svg" alt="Create AI Agents Championship" height="32"><strong class="brand">AgentCalc Studio</strong>
+<span class="sp"></span><span id="off" class="pill" hidden>Offline</span><button id="install" class="btn" hidden>Install app</button>
+<button id="partner" class="btn ghost" aria-label="Championship and partner alignment">Partners</button>
+<button id="theme" class="btn ghost" aria-label="Toggle dark mode">◐</button></header>
+<nav id="nav" role="tablist" aria-label="Modules">
+<button role="tab" data-t="build" aria-selected="true">Builder</button><button role="tab" data-t="calc" aria-selected="false">Calculators</button>
+<button role="tab" data-t="gloss" aria-selected="false">Glossary</button><button role="tab" data-t="brief" aria-selected="false">Pitch canvas</button></nav>
+<main>
+<section id="build" role="tabpanel"></section>
+<section id="calc" role="tabpanel" hidden></section>
+<section id="gloss" role="tabpanel" hidden></section>
+<section id="brief" role="tabpanel" hidden></section>
+<footer><img src="images/logo-championship.svg" alt="" height="28"> <img src="images/logo-dubai-chamber.svg" alt="An initiative by Dubai Chamber Digital" height="28">
+<p>Design an Agent That Matters — turn your idea into impact. Validate cost, ROI and market before you build.</p>
+<button id="export" class="btn ghost">Export PWA icon pack</button></footer></main>
+<dialog id="dlg"><div id="dlgb"></div><button class="btn" onclick="dlg.close()">Close</button></dialog>
+<div id="toast" role="status" hidden></div>
+<script src="js/glossary.js"></script><script src="js/calculators.js"></script><script src="js/visual-builder.js"></script><script src="js/app.js"></script>
+<script>if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register('sw.js').then(r=>{r.onupdatefound=()=>{const w=r.installing;w.onstatechange=()=>{if(w.state==='installed'&&navigator.serviceWorker.controller)toast('New version ready — reload to update.')}}}))</script>
+</body></html>
