@@ -40,3 +40,19 @@ footer{text-align:center;color:var(--sub);padding:16px 0;font-size:14px}footer i
 @media(max-width:374px){body{padding-inline:8px}.btn{padding:8px 10px}}@media(min-width:1280px){main{max-width:1160px}}
 ::view-transition-old(root),::view-transition-new(root){animation-duration:.18s}
 @media(display-mode:window-controls-overlay){.top{left:env(titlebar-area-x,0);width:env(titlebar-area-width,100%);-webkit-app-region:drag}body{padding-top:calc(env(titlebar-area-height,33px) + 40px)}}
+
+/* 2026 visual upgrade */
+:root{--g1:linear-gradient(135deg,#5B2C83,#7C3AED);--sh:0 12px 32px -8px rgba(26,11,59,.18)}
+body{background:radial-gradient(1100px 480px at 88% -8%,rgba(124,58,237,.14),transparent 60%),radial-gradient(900px 420px at -8% 4%,rgba(242,122,107,.12),transparent 55%),var(--bg);background-attachment:fixed}
+.top{background:radial-gradient(520px 110px at 82% 0,rgba(124,58,237,.45),transparent 70%),radial-gradient(420px 110px at 8% 100%,rgba(242,122,107,.3),transparent 70%),linear-gradient(120deg,rgba(19,9,45,.94),rgba(38,17,84,.94));backdrop-filter:blur(18px) saturate(1.5);-webkit-backdrop-filter:blur(18px) saturate(1.5);box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 10px 28px -10px rgba(19,9,45,.6)}
+.top img{height:34px;border-radius:10px}
+.card{padding:20px;border-radius:20px;overflow-x:auto;box-shadow:inset 0 1px 0 rgba(255,255,255,.12),var(--sh)}
+.btn{background:var(--g1);border-radius:12px;box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 6px 16px -6px rgba(91,44,131,.6);transition:transform .16s cubic-bezier(.34,1.56,.64,1),box-shadow .16s}
+.btn:hover{transform:translateY(-1px)}.btn:active{transform:scale(.98)}
+.btn.ghost{background:transparent;box-shadow:none}.btn.acc{background:linear-gradient(135deg,#F27A6B,#F7A395);color:#1A0B3B}
+.chip,.pill{border-radius:999px}.chip[aria-pressed=true]{background:var(--g1);color:#fff;border-color:transparent}
+input,select,textarea{border-radius:12px}svg{max-width:100%}pre{overflow-x:auto}
+#nav{backdrop-filter:blur(18px);background:color-mix(in srgb,var(--card) 88%,transparent)}
+footer{padding:24px 0}footer img{height:36px;border-radius:10px}
+@media(min-width:768px){.card{padding:24px}.grid{gap:24px}}
+@media(min-width:1280px){.grid{grid-template-columns:repeat(12,1fr)}.grid>:first-child{grid-column:span 7}.grid>:last-child{grid-column:span 5}}
