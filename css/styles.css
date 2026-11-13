@@ -85,3 +85,14 @@ input,select,textarea{border-width:1.5px}
 #nav{background:color-mix(in srgb,var(--card) 96%,transparent);border-top:1px solid var(--line)}
 body{padding-bottom:calc(var(--nav) + 56px + env(safe-area-inset-bottom))}
 #rpt{color:#000}
+
+/* v1.4 beginner-friendly + layout */
+body{padding-top:calc(72px + env(safe-area-inset-top))}
+.top .ib{flex-direction:column;gap:1px;line-height:1;padding:0 4px;min-width:44px;height:46px}
+.ic{font-size:16px}.cap{font-size:10px;font-weight:600;letter-spacing:.01em}
+.hp{display:block;font-size:13px;line-height:1.4;color:var(--sub);margin:4px 0 8px;font-weight:400}
+.tt{font-weight:500;font-size:.8em;color:var(--sub)}
+.qs b{font-size:18px}.qs ol{margin:8px 0 12px 20px;padding:0}.qs li{margin:4px 0}
+footer{padding-bottom:calc(var(--nav) + 40px + env(safe-area-inset-bottom))}
+@media(min-width:1024px){footer{padding-bottom:24px}}
+@media(max-width:519px){footer .fl{flex-direction:column;gap:12px}footer .fl .dv{display:none}footer .fl .lg{max-width:100%}}
