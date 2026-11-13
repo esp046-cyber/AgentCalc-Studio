@@ -28,10 +28,10 @@ const GLOSS=[
 [V,'MVP / Agent Prototype','The smallest agent that tests the core value.','Keeps the first build cheap.','—','score'],
 [V,'Autonomy Boundary','The line between what the agent does alone and what a person decides.','A clear boundary is a pitch strength.','—','score']
 ].map(a=>({cat:a[0],term:a[1],def:a[2],why:a[3],ex:a[4],jump:a[5]}));
-function mountGlossary(el){let c='All',q='';
+function mountGlossary(el){let c='Start Here (Basics)',q='';
 el.innerHTML='<h2>Glossary</h2><label for=gq>Search terms</label><input id=gq type=search><div id=gc class=pills></div><div id=gl></div>';
 const draw=()=>{gc.innerHTML=CATS.map(x=>`<button class=chip aria-pressed=${x==c} data-c="${x}">${x}</button>`).join('');
-const r=GLOSS.filter(g=>(c=='All'||g.cat==c)&&(g.term+g.def).toLowerCase().includes(q));
+const r=GLOSS.filter(g=>(c=='All'||q||g.cat==c)&&(g.term+g.def).toLowerCase().includes(q));
 gl.innerHTML=r.length?r.map((g,i)=>`<button class="card chip" style="display:block;width:100%;border-radius:16px;text-align:left" data-t="${g.term}"><b>${g.term}</b><br><small>${g.def}</small></button>`).join(''):'<p class=empty>No terms match. Clear the search.</p>'};
 gq.oninput=e=>{q=e.target.value.toLowerCase();draw()};
 el.onclick=e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.c){c=b.dataset.c;draw()}
@@ -61,3 +61,15 @@ if(b.dataset.t){const g=GLOSS.find(x=>x.term==b.dataset.t);dlgb.innerHTML=`<h3>$
 [B,'Outcome-Based Pricing','Charging per result, such as a resolved ticket.','Aligns price with value delivered.','price ≈ value per outcome × share','roi'],
 [B,'AP2 / x402','Protocols for agent payments.','Matter if your agent buys or charges per action.','—','roi']
 ].map(a=>({cat:a[0],term:a[1],def:a[2],why:a[3],ex:a[4],jump:a[5]})).forEach(g=>GLOSS.push(g));
+CATS.unshift('Start Here (Basics)');
+[
+['AI agent (the basics)','Think of a smart intern: you give it a goal, and it works through the steps and uses tools (email, spreadsheets, search) to get it done.','Your idea is only an agent if it decides and acts, not just answers questions.','Goal: chase unpaid invoices. It checks the sheet, writes the reminder, and logs the result.','score'],
+['Token','The small pieces of text an AI reads and writes, a bit like syllables. 1,000 tokens is about 750 words.','AI companies bill by tokens, so tokens are your main running cost.','One page of text is roughly 600 to 700 tokens.','cost'],
+['Prompt','The instructions and information you hand to the AI, like a brief you give a freelancer.','Longer prompts mean more tokens, so a higher cost.','"You are a polite billing assistant" plus the customer email.','cost'],
+['AI model','The brain behind the agent. Small models are fast and cheap; big ones think harder and cost more.','Choosing the right size is the biggest cost lever you have.','A small model sorts emails; a big model summarises contracts.','cost'],
+['Cost per task','What it costs, in money, each time your agent finishes one job.','If a task costs less than the value it creates, the idea can work.','$0.0014 per answered question.','cost'],
+['Return on investment (ROI)','How much you get back compared with what you spent, like interest on money you invest.','Buyers want one clear number.','Spend $8,000, save $12,000 a year: a 50% return.','roi'],
+['Human review','A person checking the agent’s work before it goes out, like a manager signing off.','It protects quality but reduces the time you save.','The agent drafts; a person approves anything over AED 5,000.','roi'],
+['Market size','How many customers could buy, and how much money that adds up to.','Shows whether the idea is big enough to matter.','50,000 businesses x $1,200 = $60M a year.','market'],
+['Profit margin','The share of what customers pay that you keep after your costs.','Software usually aims for 70 to 85%.','Charge $100, spend $20 to run it: an 80% margin.','pricing']
+].map(a=>({cat:'Start Here (Basics)',term:a[0],def:a[1],why:a[2],ex:a[3],jump:a[4]})).forEach(g=>GLOSS.push(g));
