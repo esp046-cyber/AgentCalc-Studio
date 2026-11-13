@@ -29,7 +29,7 @@ const GLOSS=[
 [V,'Autonomy Boundary','The line between what the agent does alone and what a person decides.','A clear boundary is a pitch strength.','—','score']
 ].map(a=>({cat:a[0],term:a[1],def:a[2],why:a[3],ex:a[4],jump:a[5]}));
 function mountGlossary(el){let c='All',q='';
-el.innerHTML='<h2>Glossary</h2><label for=gq>Search terms</label><input id=gq type=search><div id=gc></div><div id=gl></div>';
+el.innerHTML='<h2>Glossary</h2><label for=gq>Search terms</label><input id=gq type=search><div id=gc class=pills></div><div id=gl></div>';
 const draw=()=>{gc.innerHTML=CATS.map(x=>`<button class=chip aria-pressed=${x==c} data-c="${x}">${x}</button>`).join('');
 const r=GLOSS.filter(g=>(c=='All'||g.cat==c)&&(g.term+g.def).toLowerCase().includes(q));
 gl.innerHTML=r.length?r.map((g,i)=>`<button class="card chip" style="display:block;width:100%;border-radius:16px;text-align:left" data-t="${g.term}"><b>${g.term}</b><br><small>${g.def}</small></button>`).join(''):'<p class=empty>No terms match. Clear the search.</p>'};
