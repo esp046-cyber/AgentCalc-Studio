@@ -19,10 +19,16 @@
 <link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon-32x32.png">
 <link rel="stylesheet" href="./css/styles.css"></head>
 <body>
-<header class="top"><img src="./images/logo-championship.svg" alt="Create AI Agents Championship" height="32"><strong class="brand">AgentCalc Studio</strong>
-<span class="sp"></span><span id="off" class="pill" hidden>Offline</span><button id="install" class="btn" hidden>Install app</button>
-<button id="cmdk" class="btn ghost" aria-label="Search (Ctrl K)">⌘K</button><button id="vault" class="btn ghost">Vault</button><button id="settings" class="btn ghost">Settings</button><button id="partner" class="btn ghost" aria-label="Championship and partner alignment">Partners</button>
-<button id="theme" class="btn ghost" aria-label="Toggle dark mode">◐</button></header>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<symbol id="mk-c" viewBox="0 0 40 40"><rect width="40" height="40" rx="11" fill="#6E359E"/><text x="20" y="27" text-anchor="middle" font-family="Poppins,Arial,sans-serif" font-weight="800" font-size="19" fill="#fff">ai</text><rect x="9" y="33" width="22" height="2.5" rx="1.25" fill="#F27A6B"/></symbol>
+<symbol id="mk-d" viewBox="0 0 44 40"><g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 32V19a8 8 0 0 1 16 0v13"/><path d="M11 32V20a3 3 0 0 1 6 0v12"/><path d="M27 32V9M33 32V15M39 32V21"/></g><path d="M4 36h38" stroke="#F27A6B" stroke-width="2.6" stroke-linecap="round"/></symbol>
+<symbol id="lg-c" viewBox="0 0 250 40"><use href="#mk-c" width="40" height="40"/><text x="148" y="17" text-anchor="middle" font-family="Noto Naskh Arabic,DejaVu Sans,Arial,sans-serif" font-size="12.5" font-weight="700" fill="currentColor">تحدي الذكاء الاصطناعي المساعد</text><text x="148" y="33" text-anchor="middle" font-family="Poppins,Arial,sans-serif" font-size="9.4" font-weight="700" letter-spacing=".3" fill="currentColor">CREATE AI AGENTS CHAMPIONSHIP</text></symbol>
+<symbol id="lg-d" viewBox="0 0 190 40"><use href="#mk-d" width="44" height="40"/><text x="54" y="11" font-family="Poppins,Arial,sans-serif" font-size="6.5" letter-spacing="1" fill="currentColor" opacity=".85">AN INITIATIVE BY</text><text x="54" y="26" font-family="Poppins,Arial,sans-serif" font-size="14" font-weight="700" fill="currentColor">DUBAI CHAMBER</text><text x="54" y="37" font-family="Poppins,Arial,sans-serif" font-size="9" font-weight="700" letter-spacing="3" fill="#E8604F">DIGITAL</text></symbol>
+</defs></svg>
+<header class="top"><a class="lkw" href="./" aria-label="Create AI Agents Championship × Dubai Chamber Digital — AgentCalc Studio home"><span class="marks"><svg class="mkc"><use href="#mk-c"/></svg><i class="dv"></i><svg class="mkd"><use href="#mk-d"/></svg></span><span class="full"><svg class="lg lgc"><use href="#lg-c"/></svg><i class="dv"></i><svg class="lg lgd"><use href="#lg-d"/></svg></span></a>
+<strong class="brand">AgentCalc</strong><span class="sp"></span>
+<button id="cmdk" class="btn ghost ib" aria-label="Search (Ctrl K)">⌘K</button><button id="vault" class="btn ghost ib" aria-label="Project vault">▤<span class="lbl">Vault</span></button><button id="settings" class="btn ghost ib" aria-label="Settings">⚙<span class="lbl">Settings</span></button><button id="theme" class="btn ghost ib" aria-label="Toggle dark mode">◐</button></header>
+<div class="sub"><span>Validate AI agent token costs, build routes, ROI &amp; TAM/SAM/SOM before you build.</span><span class="sp"></span><span id="off" class="pill" hidden>Offline</span><button id="install" class="btn acc" hidden>Install app</button></div>
 <nav id="nav" role="tablist" aria-label="Modules">
 <button role="tab" data-t="build" aria-selected="true">Builder</button><button role="tab" data-t="calc" aria-selected="false">Calculators</button>
 <button role="tab" data-t="gloss" aria-selected="false">Glossary</button><button role="tab" data-t="brief" aria-selected="false">Pitch canvas</button></nav>
@@ -31,9 +37,9 @@
 <section id="calc" role="tabpanel" hidden></section>
 <section id="gloss" role="tabpanel" hidden></section>
 <section id="brief" role="tabpanel" hidden></section>
-<footer><img src="./images/logo-championship.svg" alt="" height="28"> <img src="./images/logo-dubai-chamber.svg" alt="An initiative by Dubai Chamber Digital" height="28">
+<footer><div class="fl"><svg class="lg lgc" role="img" aria-label="Create AI Agents Championship"><use href="#lg-c"/></svg><i class="dv"></i><svg class="lg lgd" role="img" aria-label="An initiative by Dubai Chamber Digital"><use href="#lg-d"/></svg></div>
 <p>Design an Agent That Matters — turn your idea into impact. Validate cost, ROI and market before you build.</p>
-<button id="export" class="btn ghost">Export PWA icon pack</button></footer></main>
+<button id="partner" class="btn ghost">Partners &amp; championship alignment</button></footer></main>
 <dialog id="dlg"><div id="dlgb"></div><button class="btn" onclick="dlg.close()">Close</button></dialog>
 <div id="toast" role="status" hidden></div>
 <script src="./js/glossary.js"></script><script src="./js/calculators.js"></script><script src="./js/visual-builder.js"></script><script src="./js/app.js"></script>

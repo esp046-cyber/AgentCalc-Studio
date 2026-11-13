@@ -31,7 +31,30 @@ const tw=P?.05*h:.11*h,tt=P?.905*h:.81*h,th=P?.05*h:.12*h,x0=.06*w+tw+14*u,mw=.9
 tx('AI',.06*w+tw/2-5.5*Math.round(3*u),tt+th/2-3.5*Math.round(3*u),3*u,W,tw);
 tx('CREATE AI AGENTS CHAMPIONSHIP',x0,tt+th/2-8*sc0,sc0,[91,44,131,255],mw);tx('DUBAI CHAMBER DIGITAL',x0,tt+th/2+2*sc0,sc0,[91,44,131,255],mw);
 return png(w,h,(x,y)=>buf.subarray((y*w+x)*4,(y*w+x)*4+4))}
-out('icons/og-image.png',shot(1200,630));
-out('screenshots/mobile-narrow.png',shot(750,1334));
-out('screenshots/desktop-wide.png',shot(1920,1080));
+// Smooth anti-aliased typography: uses @napi-rs/canvas (or node-canvas) when installed (npm i @napi-rs/canvas); falls back to the zero-dependency bitmap renderer above.
+let CV=null;try{CV=require('@napi-rs/canvas')}catch(e){try{CV=require('canvas')}catch(e2){}}
+function smooth(w,h){const G=CV.GlobalFonts;if(G&&G.registerFromPath&&!G.done){G.done=1;[['/usr/share/fonts/truetype/google-fonts/Poppins-Bold.ttf','ACB'],['/usr/share/fonts/truetype/google-fonts/Poppins-Medium.ttf','ACM'],['/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf','ACA']].forEach(f=>{try{if(fs.existsSync(f[0]))G.registerFromPath(f[0],f[1])}catch(e){}})}
+const c=CV.createCanvas(w,h),x=c.getContext('2d'),P=h>w,u=Math.min(w,h)/630,m=.06*w,B='ACB,"Plus Jakarta Sans",Poppins,"DejaVu Sans",sans-serif',M='ACM,Inter,Poppins,"DejaVu Sans",sans-serif';
+const rr=(a,b,cw,ch,r)=>{x.beginPath();x.moveTo(a+r,b);x.arcTo(a+cw,b,a+cw,b+ch,r);x.arcTo(a+cw,b+ch,a,b+ch,r);x.arcTo(a,b+ch,a,b,r);x.arcTo(a,b,a+cw,b,r);x.closePath()};
+const T=(t,a,b,sz,col,mw,al,f)=>{x.fillStyle=col;x.textAlign=al||'left';do{x.font=`${sz}px ${f||B}`;sz-=1}while(mw&&x.measureText(t).width>mw&&sz>8);x.fillText(t,a,b)};
+let g=x.createLinearGradient(0,0,w,h);g.addColorStop(0,'#13092D');g.addColorStop(.6,'#261154');g.addColorStop(1,'#5B2C83');x.fillStyle=g;x.fillRect(0,0,w,h);
+g=x.createRadialGradient(w*.85,h*.08,0,w*.85,h*.08,w*.55);g.addColorStop(0,'rgba(242,122,107,.6)');g.addColorStop(1,'rgba(242,122,107,0)');x.fillStyle=g;x.fillRect(0,0,w,h);
+g=x.createRadialGradient(w*.05,h*.95,0,w*.05,h*.95,w*.5);g.addColorStop(0,'rgba(124,58,237,.45)');g.addColorStop(1,'rgba(124,58,237,0)');x.fillStyle=g;x.fillRect(0,0,w,h);
+const ty=P?.085*h:.16*h;T('AgentCalc Studio',m,ty,66*u,'#fff',w-2*m);
+if(P){T('Cost, ROI and market size',m,ty+46*u,28*u,'#C4B5FD',w-2*m,'left',M);T('before you build',m,ty+82*u,28*u,'#C4B5FD',w-2*m,'left',M)}else T('Cost, ROI and market size before you build',m,ty+50*u,28*u,'#C4B5FD',w-2*m,'left',M);
+const gap=24*u,cards=[['LLM cost per run','$0.0014',.8,.45],['ROI, year 1','+312%',.6,.3],['Market (SOM)','$450K',.7,.35]];
+cards.forEach((k,i)=>{const cw=P?w-2*m:(w-2*m-2*gap)/3,ch=P?.16*h:.3*h,a=P?m:m+i*(cw+gap),b=P?.25*h+i*(.19*h):.4*h;x.save();x.shadowColor='rgba(0,0,0,.35)';x.shadowBlur=30*u;x.shadowOffsetY=12*u;rr(a,b,cw,ch,22*u);x.fillStyle='rgba(246,244,250,.97)';x.fill();x.restore();
+T(k[0],a+24*u,b+40*u,19*u,'#4B3F6B',cw-48*u,'left',M);T(k[1],a+24*u,b+86*u,40*u,'#1A0B3B',cw-48*u);
+[[k[2],'#F27A6B'],[k[3],'#6E359E']].forEach((r,j)=>{const by=b+ch-50*u+j*20*u;rr(a+24*u,by,cw-48*u,10*u,5*u);x.fillStyle='rgba(26,11,59,.1)';x.fill();rr(a+24*u,by,(cw-48*u)*r[0],10*u,5*u);x.fillStyle=r[1];x.fill()})});
+const ph=P?.1*h:.18*h,py=P?.87*h:.78*h,pw=w-2*m;rr(m,py,pw,ph,22*u);x.fillStyle='rgba(255,255,255,.1)';x.fill();x.strokeStyle='rgba(255,255,255,.22)';x.lineWidth=1.5*u;x.stroke();
+const s=ph*.56,a0=m+20*u,mid=py+ph/2;g=x.createLinearGradient(a0,mid-s/2,a0+s,mid+s/2);g.addColorStop(0,'#7C3AED');g.addColorStop(1,'#5B2C83');rr(a0,mid-s/2,s,s,s*.28);x.fillStyle=g;x.fill();T('ai',a0+s/2,mid+s*.18,s*.5,'#fff',s,'center');x.fillStyle='#F27A6B';rr(a0+s*.22,mid+s*.3,s*.56,3*u,1.5*u);x.fill();
+const tx=a0+s+14*u,half=m+pw*.56;T('CREATE AI AGENTS CHAMPIONSHIP',tx,mid-2*u,(P?15:19)*u,'#fff',half-tx-16*u);T('تحدي الذكاء الاصطناعي المساعد',tx,mid+22*u,(P?14:17)*u,'#C4B5FD',half-tx-16*u,'left','ACA,"DejaVu Sans",sans-serif');
+x.fillStyle='rgba(255,255,255,.35)';x.fillRect(half,py+ph*.2,1.5*u,ph*.6);
+const ex=half+20*u,es=s*.8;x.strokeStyle='#fff';x.lineWidth=3*u;x.lineCap='round';x.beginPath();x.moveTo(ex,mid+es/2);x.lineTo(ex,mid);x.arc(ex+es*.2,mid,es*.2,Math.PI,0);x.lineTo(ex+es*.4,mid+es/2);x.moveTo(ex+es*.6,mid+es/2);x.lineTo(ex+es*.6,mid-es*.4);x.moveTo(ex+es*.8,mid+es/2);x.lineTo(ex+es*.8,mid-es*.1);x.stroke();x.strokeStyle='#F27A6B';x.beginPath();x.moveTo(ex-4*u,mid+es/2+6*u);x.lineTo(ex+es*.9,mid+es/2+6*u);x.stroke();
+const dx=ex+es+16*u,dw=m+pw-dx-16*u;T('AN INITIATIVE BY',dx,mid-20*u,(P?9:11)*u,'#C4B5FD',dw,'left',M);T('DUBAI CHAMBER',dx,mid+4*u,(P?16:20)*u,'#fff',dw);T('DIGITAL',dx,mid+26*u,(P?12:15)*u,'#F27A6B',dw);
+return c.toBuffer('image/png')}
+const mk=(w,h)=>{try{if(CV)return smooth(w,h)}catch(e){console.warn('canvas render failed, using bitmap fallback:',e.message)}return shot(w,h)};
+out('icons/og-image.png',mk(1200,630));
+out('screenshots/mobile-narrow.png',mk(750,1334));
+out('screenshots/desktop-wide.png',mk(1920,1080));
 console.log('Assets written.');
